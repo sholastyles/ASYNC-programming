@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getInfo()">Get information</button>
+
+
+    <script>
+        const endpoint = "https://jsonplaceholder.typicode.com/users";
+
+        const getInfo =async () => {
+            const response =await fetch(endpoint);
+            console.log(response);
+            const newResponse = await response.json();
+            console.log(newResponse);
+            newResponse.map((data)=>{
+                showcase.innerHTML += 
+                `<P>${data.id}.${data.name}</P>`   
+            })
+        }
+
+     const getInfo2 = () => {
+        fetch(endpoint2)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+          
+            
+            
+        
+    </script>
+</body>
+</html>
